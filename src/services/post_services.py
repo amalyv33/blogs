@@ -12,7 +12,7 @@ class PostServices:
 
     def get_all(self):
         posts = self.repository.get_all()
-        post_response = [PostListReponse.model_validate(post) for post in posts]
+        post_response = [PostResponse.model_validate(post) for post in posts]
         return PostListReponse(posts=post_response, total=len(post_response))
     
     def get_post_by_id(self ,post_id : int) -> PostResponse:

@@ -28,6 +28,6 @@ class PostRepositories:
     def create(self, post_date : PostCreate) -> Post:
           db_post = Post(**post_date.model_dump())
           self.db.add(db_post)
-          self.db.commit
+          self.db.commit()
           self.db.refresh(db_post)
           return db_post
