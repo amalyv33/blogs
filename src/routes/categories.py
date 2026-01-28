@@ -6,8 +6,8 @@ from ..services.category_services import CategoryServices
 from ..schemas.category import CategoryResponse
 
 router = APIRouter(
-    prefix="/api/posts",
-    tags=['posts']
+    prefix="/api/categories",
+    tags=['categories']
 )
 
 @router.get("", response_model= List[CategoryResponse],status_code=status.HTTP_200_OK)
