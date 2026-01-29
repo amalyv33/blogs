@@ -1,4 +1,5 @@
 from pydantic import BaseModel, Field
+from typing import List
 
 class CategoryBase(BaseModel):
     name: str = Field(..., min_length=3, max_length=100, description="Название категории")

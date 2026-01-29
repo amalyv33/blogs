@@ -25,6 +25,7 @@ class PostRepositories:
                 .filter(Post.category_id == category_id)
                 .all()
           )
+    
     def create(self, post_date : PostCreate) -> Post:
           db_post = Post(**post_date.model_dump())
           self.db.add(db_post)

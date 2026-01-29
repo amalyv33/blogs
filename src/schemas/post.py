@@ -27,3 +27,4 @@ class PostResponse(BaseModel):
 class PostListReponse(BaseModel):
     posts: list[PostResponse]
     total: int = Field(..., description="Количество постов")
+

@@ -2,6 +2,7 @@ from sqlalchemy.orm import Session
 from typing import List , Optional
 from ..models.category import Category
 from ..schemas.category import CategoryCreate
+from ..schemas.post import PostResponse
 
 class CategoryRepositories:
     def __init__(self, db : Session) :
@@ -22,3 +23,4 @@ class CategoryRepositories:
           self.db.commit()
           self.db.refresh(db_category)
           return db_category
+    

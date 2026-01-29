@@ -21,6 +21,6 @@ def get_by_category_id( post_id : int,db : Session = Depends(get_db)):
     return service.get_post_by_id(post_id)
 
 @router.get("/category/{category_id}", response_model=PostListReponse, status_code=status.HTTP_200_OK)
-def get_post_by_category(category_id : int , db : Session = Depends(get_db)):
+def get_posts_by_category(category_id : int , db : Session = Depends(get_db)):
     service= PostServices(db)
-    return service.get_post_by_category(category_id)
+    return service.get_posts_by_category(category_id)

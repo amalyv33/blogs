@@ -21,11 +21,11 @@ class PostServices:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f"Пост с {post_id} не найден")
         return PostResponse.model_validate(post)    
     
-    def get_post_by_category(self,category_id) -> PostResponse:
+    def get_posts_by_category(self,category_id) -> PostResponse:
         category = self.category_repository.get_by_id(category_id)
         if not category:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'Категория с {category_id} , не найден')
-        posts = self.repository.get_by_category(category_id) 
+        posts = self.repository.get_by_category(category_id)
         post_response = [PostResponse.model_validate(post) for post in posts]
         return PostListReponse(posts=post_response, total=len(post_response))
     
@@ -35,3 +35,4 @@ class PostServices:
             raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail=f'Категория с {category_id} , не найден')
         post = self.repository.create(post_data)
         return PostResponse.model_validate(post)
+    
